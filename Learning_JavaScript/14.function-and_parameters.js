@@ -1,11 +1,11 @@
-// if we have to print several statement many times in out program than we have to make function by calling that function we ca nprint all statemnet without writing the hard code like
+// if we have to print several statement many times in out program than we have to make function by calling that function we ca nprint all statemnet without writing the hard code like.
 console.log('a');
 console.log('d');
 console.log('e');
 console.log('e');
 console.log('l');
 
-// and we have to print all these staement 5 times in our progrma than we will made a function to print these outputs
+// and we have to print all these staement 5 times in our progrma than we will made a function to print these outputs.
 function print() {
     console.log('a');
     console.log('d');
@@ -14,7 +14,7 @@ function print() {
     console.log('l');
 }
 
-//after creating that function we will call it when we need to print these statements
+//after creating that function we will call it when we need to print these statements.
 print()//will print all 5 statements
 print()//will print all 5 statements
 
@@ -55,7 +55,7 @@ function userloggedin1(username) {
 
 }
 userloggedin1("Adeel Arshad")
-// we can set a default value it will be useed when user will not tenter his name. when user will enter his name this name will be overwritten
+// we can set a default value it will be useed when user will not tenter his name. when user will enter his name this name will be overwritten.
 
 function userloggedin1(username = "unknown") {
     if (username === undefined) {
