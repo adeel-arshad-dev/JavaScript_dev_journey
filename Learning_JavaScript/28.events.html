@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+  let owl= document.querySelector('#owl')
+  owl.addEventListener("click",function(e){
+    alert("Owl")
+    console.log(e);
+    
+  })
+  // we can do the same with onclick() but this is not good to use so avoid use of onclick()
+//   document.getElementById('owl').onclick=function(){
+//     alert('owl clicked')
+//   }
+// attachEvent() this was used in past
+
+// ----------------< Event Propagation   
+// 
+// addEventListener("click",function(){},false----> eventPropagation is decided by that whether it is bubbling or it is capturing)
+// #1------>false value is for the Event Bubbling
+// #------->while true value is for Event Capturing;
+// >----------------------------------------------------
+
+
+let img= document.querySelector('#images')
+  img.addEventListener("click",function(e){
+    console.log("Images inside the ul are clicked!")
+   
+    
+  })
+let ow= document.querySelector('#owl')
+  ow.addEventListener("click",function(e){
+    console.log("Owl clicked!")
+   // when we click owl first "owl clicked" statement will be shown than "Images inside the ul are clicked!" will be printed.
+    
+  })
+/*
+-------------<Bubling:  when the third value is false. if we use two eventlistener one on the whole images part and other on for example owl. than when we clixk on owl first owl's values are printed than all images properties are printed. that's why it is called bubbling mean bubble up from lower to upper.>--------
+
+------------<capturing: when third value if true. let assume the same condition of above. now it will first take the value of all imgaes and than it will capture the owl image means it is from uper to lower and that is the main difference between these two that whether we want upper values first or lower values first.        >------------
+
+*/
+
+/*  ---------------< stopping propagation
+if we have added event listener on both and we want to stop propagation han we cn do that by writing .stopPropagation(). befor dot we will use the varibale that we have passd to function iside the eventListener.>--------
+
+*/
+
+/* 
+if we want that when we click on any link it should not go to that link. we can do that by preventDefault() it will change the default behaviour.
+*/
+document.getElementById('google').addEventListener('click',function(e){
+    e.preventDefault()// now google will not be opened
+    e.stopPropagation()// as we have added an eventListener on images
+    console.log('google is clicked but you cannot open it');
+    
+},false)
+
+// if we want to delete the image that we cllik than we can do tha by following method
+document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.tagName);
+    let remove= e.target.parentNode// cause if removed the image its li will remain on page so we have to access its parent (li)
+    console.log(remove);
+    //remove.remove()// but there is a probnlem when we suddenly click on li than all images are removed. so to prevent from that issue we use a check here
+
+    if(e.target.tagName==="IMG")
+    {
+        remove.remove()// now this will work fine.
+    }
+    
+})
+
+
+</script>
+</html>
