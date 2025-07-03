@@ -1,4 +1,7 @@
-// java script is basically a prototype based language. it does not have real classess but it provide more familiar syntax for developers coming from class based languages like c++,java but under the hooks it works somewhat differently.
+/*
+java script is basically a prototype based language. it does not have real classess but it provide more familiar
+syntax for developers coming from class based languages like c++,java but under the hooks it works somewhat differently.
+*/
 const date=new Date()// this new key word is called constructor function
 
 // ----------< objects leteral >---------
