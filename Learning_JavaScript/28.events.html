@@ -27,7 +27,8 @@
     console.log(e);
     
   })
-  // we can do the same with onclick() but this is not good to use so avoid use of onclick()
+  // we can do the same with onclick()->onclick="alert('owl clicked')" but
+  //  this is not good to use so avoid use of onclick()
 //   document.getElementById('owl').onclick=function(){
 //     alert('owl clicked')
 //   }
@@ -35,7 +36,8 @@
 
 // ----------------< Event Propagation   
 // 
-// addEventListener("click",function(){},false----> eventPropagation is decided by that whether it is bubbling or it is capturing)
+// addEventListener("click",function(){},false----> eventPropagation is decided by that
+//  whether it is bubbling or it is capturing)
 // #1------>false value is for the Event Bubbling
 // #------->while true value is for Event Capturing;
 // >----------------------------------------------------
@@ -50,23 +52,36 @@ let img= document.querySelector('#images')
 let ow= document.querySelector('#owl')
   ow.addEventListener("click",function(e){
     console.log("Owl clicked!")
-   // when we click owl first "owl clicked" statement will be shown than "Images inside the ul are clicked!" will be printed.
+   /* when we click owl first "owl clicked" statement will be shown than
+    "Images inside the ul are clicked!" will be printed.
+   */
     
   })
 /*
--------------<Bubling:  when the third value is false. if we use two eventlistener one on the whole images part and other on for example owl. than when we clixk on owl first owl's values are printed than all images properties are printed. that's why it is called bubbling mean bubble up from lower to upper.>--------
+-------------<Bubling:  when the third value is false. if
+ we use two eventlistener one on the whole images part and
+  other on for example owl. than when we clixk on owl first owl's values
+   are printed than all images properties are printed. that's why it is called bubbling mean
+    bubble up from lower to upper.>--------
 
-------------<capturing: when third value if true. let assume the same condition of above. now it will first take the value of all imgaes and than it will capture the owl image means it is from uper to lower and that is the main difference between these two that whether we want upper values first or lower values first.        >------------
+------------<capturing: when third value if true. let assume the same
+ condition of above. now it will first take the value of all imgaes and than
+  it will capture the owl image means it is from uper to lower and that
+   is the main difference between these two that whether we want upper values
+    first or lower values first.        >------------
 
 */
 
 /*  ---------------< stopping propagation
-if we have added event listener on both and we want to stop propagation han we cn do that by writing .stopPropagation(). befor dot we will use the varibale that we have passd to function iside the eventListener.>--------
+if we have added event listener on both and we want to stop
+ propagation han we cn do that by writing .stopPropagation(). before
+  dot we will use the varibale that we have passd to function inside the eventListener.>--------
 
 */
 
 /* 
-if we want that when we click on any link it should not go to that link. we can do that by preventDefault() it will change the default behaviour.
+if we want that when we click on any link it should not go to that link.
+ we can do that by preventDefault() it will change the default behaviour.
 */
 document.getElementById('google').addEventListener('click',function(e){
     e.preventDefault()// now google will not be opened
