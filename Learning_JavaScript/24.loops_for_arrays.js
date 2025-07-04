@@ -57,10 +57,12 @@ for (const key in arr) {
   
 }
 /*
-the majoe difference between the forof and forin loop is :
-forof loop return the values while forin loop return the keys but by putting [] brackets around the keys w can access values but at start it returns the keys. for both arrays and objects while forof loop return values for the arrays.
+the major difference between the forof and forin loop is :
+forof loop return the values while forin loop return the keys but by putting [] brackets around the keys we can access values but at start it returns the keys. for both arrays and objects while forof loop return values for the arrays.
 
---------<Imp> forin loop is for the iterable like we can use forin for objects,arrays but we cannot use it for the Map() as map() is not iterable<Imp>----------
+--------<Imp> for...in is not for iterable data types — it is specifically for enumerable properties.
+You can use for...in on objects, arrays, and strings, because their keys or indexes are enumerable.
+However, you cannot use for...in on Map, because Map is iterable (works with for...of) but not enumerable, so its keys are not visible to for...in<Imp>----------
 */
 /*
 ------------<About for each> when we check the prototype of arrays we find a foreach loop for the arrays so here is method to use that function for the arrays>------
@@ -72,7 +74,7 @@ let newarray=[1,2,3,4,5]
 //     console.log(item);
     
 // })
-// ---< we can do the upper process with the help of arrow functio>---
+// ----< we can do the upper process with the help of arrow functio>---
 // const newarray=[1,2,3,4,5]
 // newarray.forEach((item)=>{
 //     console.log(item);
