@@ -10,6 +10,7 @@ window.addEventListener('keydown', (e) => {
       <th>Code</th>
     </tr>
     <tr>
+    // it will check if space key is pressed than it will show space in key 
       <td>${e.key === ' ' ? 'Space' : e.key}</td>
       <td>${e.keyCode}</td> 
       <td>${e.code}</td>
